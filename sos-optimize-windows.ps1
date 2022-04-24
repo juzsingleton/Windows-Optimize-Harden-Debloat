@@ -21,11 +21,6 @@ Remove-Item -Recurse -Force "$env:WinDir\System32\GroupPolicyUsers" | Out-Null
 secedit /configure /cfg "$env:WinDir\inf\defltbase.inf" /db defltbase.sdb /verbose | Out-Null
 gpupdate /force | Out-Null
 
-#Install Latest Windows Updates
-Start-Job -Name "Windows Updates" -ScriptBlock {
-    Install-WindowsUpdate -MicrosoftUpdate -AcceptAll; Get-WuInstall -AcceptAll -IgnoreReboot; Get-WuInstall -AcceptAll -Install -IgnoreReboot
-}
-
 Start-Job -Name "Mitigations" -ScriptBlock {
     #####SPECTURE MELTDOWN#####
     #https://support.microsoft.com/en-us/help/4073119/protect-against-speculative-execution-side-channel-vulnerabilities-in
