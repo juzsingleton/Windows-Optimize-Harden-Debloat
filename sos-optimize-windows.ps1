@@ -1141,8 +1141,6 @@ Start-Job -Name "Enable Privacy and Security Settings" -ScriptBlock {
     #Disable dows Media Player Network Sharing Service
     Stop-Service "WMPNetworkSvc" 
     Set-Service "WMPNetworkSvc" -StartupType Disabled
-    #Disable lock screen camera
-    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization" -Name "NoLockScreenCamera" -Type "DWORD" -Value 1 -Force
     #Disable remote Assistance
     Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Remote Assistance" -Name "fAllowToGetHelp" -Type "DWORD" -Value 0 -Force
     Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Remote Assistance" -Name "fAllowFullControl" -Type "DWORD" -Value 0 -Force
