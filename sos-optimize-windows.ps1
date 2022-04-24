@@ -659,7 +659,7 @@ Start-Job -Name "Remove Windows Bloatware" -ScriptBlock {
     #Prevents "Suggested Applications" returning
     New-Item -Force  "HKLM:\Software\Policies\Microsoft\Windows\CloudContent"
     Set-ItemProperty "HKLM:\Software\Policies\Microsoft\Windows\CloudContent" "DisableWindowsConsumerFeatures" 1
-
+    }
 Start-Job -Name "Disable Telemetry and Services" -ScriptBlock {
     #Disabling Telemetry and Services
     Write-Host "Disabling Telemetry and Services"
