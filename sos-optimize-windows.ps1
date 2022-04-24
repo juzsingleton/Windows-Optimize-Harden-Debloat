@@ -629,7 +629,7 @@ Start-Job -Name "Remove Windows Bloatware" -ScriptBlock {
     ForEach ($WindowsApp in $WindowsApps) {
         Get-AppxPackage -allusers $WindowsApp | Remove-AppxPackage -AllUsers
         Get-AppXProvisionedPackage -Online | Where-Object DisplayName -eq $WindowsApp | Remove-AppxProvisionedPackage -Online
-    }
+ }
 
     #Prevents Apps from re-installing
     $cdm = @(
