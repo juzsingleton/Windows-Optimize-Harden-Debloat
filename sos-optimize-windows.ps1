@@ -1141,9 +1141,6 @@ Start-Job -Name "Enable Privacy and Security Settings" -ScriptBlock {
     #Disable dows Media Player Network Sharing Service
     Stop-Service "WMPNetworkSvc" 
     Set-Service "WMPNetworkSvc" -StartupType Disabled
-    #Disable remote Assistance
-    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Remote Assistance" -Name "fAllowToGetHelp" -Type "DWORD" -Value 0 -Force
-    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Remote Assistance" -Name "fAllowFullControl" -Type "DWORD" -Value 0 -Force
     #Disable AutoPlay and AutoRun
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Name "NoDriveTypeAutoRun" -Type "DWORD" -Value 255 -Force 
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Name "NoAutorun" -Type "DWORD" -Value 1 -Force
