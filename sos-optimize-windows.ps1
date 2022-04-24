@@ -12,8 +12,6 @@ if ((Get-Location).Path -NE $PSScriptRoot) { Set-Location $PSScriptRoot }
 Copy-Item -Path .\Files\"PowerShell Modules"\* -Destination C:\Windows\System32\WindowsPowerShell\v1.0\Modules -Force -Recurse
 #Unblock New PowerShell Modules
 Get-ChildItem C:\Windows\System32\WindowsPowerShell\v1.0\Modules\PSWindowsUpdate\ -recurse | Unblock-File
-#Install PSWindowsUpdate
-Import-Module -Name PSWindowsUpdate -Force -Global
 
 #Remove and Refresh Local Policies
 Remove-Item -Recurse -Force "$env:WinDir\System32\GroupPolicy" | Out-Null
